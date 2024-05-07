@@ -1,0 +1,152 @@
+:root {
+  --text-color: #3a3042;
+  --font-size: 20px;
+  --disabled-color: #7f7f7f;
+}
+
+*,
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0px;
+  color: var(--text-color);
+}
+
+.homepage-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+}
+
+.header-div {
+  height: 100vh;
+  grid-column: 1 / 5;
+  grid-row: 1 / 3;
+}
+
+.header-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 5%;
+  font-size: 25px;
+}
+
+.animation * {
+  opacity: 0;
+  animation: fadeIn 4s ease-in-out forwards;
+  animation-delay: calc(var(--order) * 300ms);
+}
+
+@keyframes fadeIn {
+  20% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+
+  30%,
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.header-div div {
+  align-self: flex-start;
+}
+
+.template-animation * {
+  opacity: 0;
+  animation: templateFadeIn 4s ease-in-out forwards;
+  animation-delay: calc(var(--order) * 300ms);
+}
+
+@keyframes templateFadeIn {
+  20% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+
+  30%,
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.template-div {
+  height: 100vh;
+  grid-row: 3 / 4;
+  grid-column: 1 / 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  flex-shrink: 0;
+  flex-grow: 0;
+  transition: translate 400ms ease-in-out;
+}
+
+.slider-dot-div {
+  position: absolute;
+  z-index: 1;
+  align-self: flex-end;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slider-dots {
+  display: inline-block;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  margin-left: 7px;
+  cursor: pointer;
+}
+
+.slider-buttons {
+  position: absolute;
+  z-index: 1;
+  padding: 10px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.next-button {
+  left: 100%;
+  transform: translateX(-120%);
+}
+
+.previous-button {
+  transform: translateX(20%);
+}
+
+#prev-arrow:not(:hover) #prev-first-arrow {
+  opacity: 0;
+}
+
+#prev-first-arrow {
+  transition: opacity 400ms;
+}
+
+#next-arrow:not(:hover) #next-first-arrow {
+  opacity: 0;
+}
+
+#next-first-arrow {
+  transition: opacity 400ms;
+}
+
+.template-heading {
+  text-decoration: underline;
+}
